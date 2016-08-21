@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="MD.Riyaz">
+    <meta name="description" content="Input Your Age in English Convert to Bangla and Calculate Your Age.">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="css/AgeConverter.css">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/exitApp.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.js"></script>
+    <script type="text/javascript" src="js/BD.js"></script>
+    <script type="text/javascript" src="js/Calender.js"></script>
+    <script type="text/javascript" src="js/Holyday_Notice.js"></script>
+    <title>Age Converter || আপনার ইংরেজি জন্মতারিখ কে বাংলা সনে কনভার্ট করুন খুব সহজে।</title>
+</head>
+<body onload="appLoad()">
+      <div data-role="page" id="home">
+        <div data-role="header" data-position="fixed">
+          <nav id="nav">
+            <ul>
+              <li style="padding-left:20px;">
+                <img src="img/titlelogo.png"/></li>
+              <li style="float: right;">
+                <a href="#info">
+                  <img src="img/bar.png"/>
+                </a>
+              </li>
+              <li style="float: right;">
+                <a href="#" onclick="window.plugins.socialsharing.share('Your English Date of Birth Convert to Bangla.', 'Bangla Age Converter', 'www/img/logo.png')"><img src="img/share.png"/></a>
+              </li>
+            </ul>
+          </nav>
+        <div class="scroll">
+          <script>DateScrollView();</script>
+        </div>
+        </div>
+
+        <div role="main" class="ui-content">
+          <div class="p1">
+          <p class="pText">আপনার জন্মতারিখ নির্বাচন করুন.</p>
+            <form name="myForm">
+                <div class="formZone">
+                  <ul style="list-style-type:none;padding-right:15px;padding-left:10px;">
+                    <li><label>দিন: </label>
+                      <select name="userDate" data-iconpos="left">
+                        <script>viewDateBD();</script>
+                      </select>
+                    </li>
+                    <li><label>মাস:</label>
+                      <select name="userMonth" data-iconpos="left">
+                        <script>viewMonthBD();</script>
+                      </select>
+                    </li>
+                    <li><label>বছর:</label>
+                      <select name="userYear" data-iconpos="left">
+                        <script>viewYearBD();</script>
+                      </select>
+                    </li>
+                    <li>
+                      <br/>
+                      <div data-role="controlgroup" data-type="horizontal">
+                        <a class="ui-btn ui-btn-a ui-icon-recycle ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline" data-position-to="window" data-rel="popup" data-transition="pop" href="#ageDetector" onclick="ageConverterBD()"><b>কনভার্ট</b></a>
+                        <a class="ui-btn ui-btn-a ui-icon-refresh ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline" onclick="changeBD()"><b>রিফ্রেশ</b></a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+            </form>
+        </div>
+        </div>
+
+      <!-- start panel -->
+       <div data-role="panel" data-position="right" data-position-fixed="false" data-display="overlay" id="info" class="ui-panel ui-panel-position-right ui-panel-display-push ui-body-a ui-panel-animate ui-panel-open">
+         <div class="ui-panel-inner">
+            <ul data-role="listview" class="ui-listview">
+              <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-b ui-first-child">
+                <div id="head">
+                  <a href="#" data-rel="close" style="padding:4px;"><img src="img/arrow_back.png"/></a>
+                  <span style="font-size:22px;">আজ</span>
+                  <ul>
+                    <li style="font-size:16px;"><script>document.write(panelDateBD());</script></li>
+                    <li style="font-size:14px;"><script>document.write(panelDateEN());</script></li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="#" onclick="window.plugins.socialsharing.share('E2B Age Converter App, I love it.', null, 'www/img/logo.png', 'https://play.google.com/store/apps/details?id=com.mru.studio.ageconverter')" class="ui-btn ui-btn-icon-left ui-icon-share">বন্ধুদের সাথে শেয়ার করুন</a></li>
+              <li><a href="market://details?id=com.mru.studio.ageconverter" class="ui-btn ui-btn-icon-left ui-icon-star">রিট করুন</a></li>
+              <li><a href="#about" data-transition="pop" class="ui-btn ui-btn-icon-left ui-icon-info">অ্যাপ সম্পর্কে</a></li>
+              <li class="ui-last-child"><a href="mailto:m.r.u.khan2012@gmail.com?subject=E2B_Age_Converter&body=Write_Your_feedback" class="ui-btn ui-btn-icon-left ui-icon-mail">মতামত যানান</a></li>
+            </ul>
+          </div>
+        </div>
+
+  <!--Start footer-->
+        <div data-role="footer" data-position="fixed" data-fullscreen="false" data-theme="a">
+          <div class="changeLang">
+              Change: <a rel="external" href="EN.html"><img src="img/EN.svg" alt="."/> English</a>
+          </div>
+          <h4>&copy; MRU Studio 2016</h4>
+        </div>
+<!--end footer-->
+
+          <div data-role="popup" data-theme="a" id="ageDetector" data-overlay-theme="b" data-tolerance="30,16">
+            <div data-role="header" data-theme="a">
+              <div id="ageInfo"><img src="img/ok.png"/> সফলভাবে কনভার্ট হয়েছে</div>
+            </div>
+            <ul class="ui-listview" data-role="listview">
+                <li class="ui-li-static ui-body-inherit ui-first-child">
+                  <p>নির্বাচনকৃত জন্মতারিখ
+                  <span id="enAge"></span>
+                  </p>
+                </li>
+                <li class="ui-li-static ui-body-inherit" style="text-align:center;font-weight:normal;color:gainsboro;background-color:#6f6c73;">
+                    বাংলা সনে জন্মতারিখ
+                </li>
+                <li class="ui-li-static ui-body-inherit">
+                  <p><span id="bdAge"></span></p>
+                </li>
+                <li class="ui-li-static ui-body-inherit" style="text-align:center;font-weight:normal;color:gainsboro;background-color:#6f6c73;">
+                    জন্মতারিখ থেকে আজকের দিন পর্যন্ত
+                </li>
+                <li class="ui-li-static ui-body-inherit">
+                  <p><span id="totleAge"></span></p>
+                </li>
+                <li class="ui-li-static ui-body-inherit" style="text-align:center;font-weight:normal;color:gainsboro;background-color:#6f6c73;">
+                    পরবর্তী জন্মদিন
+                </li>
+                <li class="ui-li-static ui-body-inherit ui-last-child">
+                  <p>পরবর্তী জন্মদিন আসতে <span id="next_birthday"></span> দিন বাকি আছে.</p>
+                </li>
+            </ul>
+            <div data-role="footer" data-theme="a">
+              <div style="text-align:center;">
+                <a data-rel="back" class="ui-btn ui-icon-check ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline ui-btn-a">ঠিক আছে</a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Info Page -->
+
+      <div data-role="page" id="about" data-title="E2B Age Converter: About Us">
+        <div data-role="header"  data-position="fixed">
+          <a href="#" data-rel="back" data-icon="back" data-iconpos="left" class="ui-btn ui-btn-a ui-icon-delete ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline">Close</a>
+          <h1>
+            অ্যাপ সম্পর্কে
+          </h1>
+        </div>
+        <div data-role="main" class="ui-content">
+          <header><h4 style="text-align:center;">E2B Age Converter</h4></header><hr/>
+          <section><img src="img/logo.png" style="width:120px;height:150px;"></section>
+          <article>
+            <p>এই অ্যাপটি বাংলা একাডেমী কর্তৃক 'সংস্কারকৃত বাংলা বর্ষপঞ্জী' অনুযায়ী এর অ্যালগরিদম তৈরি করা হয়েছে। ভারতের পশ্চিমবঙ্গে প্রচলিত 'সনাতন বাংলা বর্ষপঞ্জী' অনুযায়ী কাজ করবে না।</p>
+            <p>এই অ্যাপ সম্পর্কে আপনার মতামত জানাতে আমাদেরকে <a style="font-weight: normal;text-decoration: none;color:inherit;" href="mailto:m.r.u.khan2012@gmail.com?subject=E2B_Age_Converter?body=Write_Your_Feedback">মেইল</a> করতে পারেন। আর এই অ্যাপটি যদি আপনাদের ভালো লাগে তাহলে Please <a style="font-weight:normal;text-decoration:none;color:inherit;" href="market://details?id=com.e2b.age.converter">রিট করুন</a>, আপনার সহযোগিতা আমাদের একান্ত কাম্য।</p>
+            <h3>এই অ্যাপটির কিছু ফিউচারঃ</h3>
+            <p>১। ইংরেজি জন্ম তারিখ দিয়ে বাংলা সনের জন্ম তারিখ জানা একই সাথে কত বছর, কত মাস, কত দিন হয়েছে এবং পরবর্তী জন্মদিন আসতে কত দিন বাকি আছে তাও জানা যাবে এই অ্যাপটিতে।</p>
+            <p>২। বাংলাদেশ ও আন্তর্জাতিক বিভিন্ন দিবস আসলে নোটিফিকেশন দিয়ে জানাবে এবং হেডারে অটো স্ক্রল করবে।</p>
+            <p>৩। আজকের বাংলা ও আরবি এবং ইংরেজি তারিখ হেডারে সমসময় অটো স্ক্রল করবে।</p>
+          </article>
+          <section>
+          <ul>
+            <li><img src="css/images/icons-png/user-black.png"/> <a href="https://goo.gl/f7Y5CU" style="font-weight:normal;text-decoration:none;color:inherit;">Facebook</a></li>
+            <li><img src="css/images/icons-png/mail-black.png"/> <a href="mailto:m.r.u.khan2012@gmail.com" style="font-weight:normal;text-decoration:none;color:inherit;">Mail</a></li>
+            <li><img src="css/images/icons-png/shop-black.png"/> Developed by: <a href="https://play.google.com/store/apps/dev?id=6618915753954935588" style="font-weight:normal;text-decoration:none;color:inherit;">MRU Studio</a></li>
+          </ul>
+        </section>
+        </div>
+        <div data-role="footer" data-position="fixed">
+          <h1>&copy; MRU Studio 2016</h1>
+        </div>
+      </div>
+      <!-- Page Info End -->
+</body>
+</html>
